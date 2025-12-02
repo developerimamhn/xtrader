@@ -1,187 +1,167 @@
 'use client';
 
-import { gsap } from "gsap";
-import { useEffect, useRef } from 'react';
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import Video from 'next-video';
-import myVideo from '../../videos/1_Astronaut.mp4';
+import Image from 'next/image';
+import pikaso_enhance from './image/pikaso_enhance.svg';
+import compnay_logo1 from './image/compnay_logo1.svg';
+import compnay_logo2 from './image/compnay_logo2.svg';
+import compnay_logo3 from './image/compnay_logo3.svg';
+import compnay_logo4 from './image/compnay_logo4.svg';
+import compnay_logo5 from './image/compnay_logo5.svg';
+import compnay_logo6 from './image/compnay_logo6.svg';
+import hero_logo1 from './image/hero_logo1.svg';
+import hero_logo2 from './image/hero_logo2.svg';
+import hero_logo3 from './image/hero_logo3.svg';
+import hero_logo4 from './image/hero_logo4.svg';
 
+const cardData = [
+  { value: "$17.26", label: "Total PnL" },
+  { value: "7,940", label: "Total APY" },
+  { value: "10,000,00", label: "Number of Trades" },
+  { value: "1.5M", label: "Position Size" },
+  { value: "$17.26", label: "Liquidations" },
+  { value: "7,940", label: "PnL Over Price" },
+  { value: "10,000,00", label: "Volume", extraWidth: true },
+];
 
+const logos = [
+  { src: compnay_logo1, width: 98.4, height: 30 },
+  { src: compnay_logo2, width: 36.1, height: 28 },
+  { src: compnay_logo3, width: 88, height: 30.02 },
+  { src: compnay_logo4, width: 81.49, height: 19.4 },
+  { src: compnay_logo5, width: 81.31, height: 26.15 },
+  { src: compnay_logo6, width: 135.6, height: 30 },
+];
 
+const heroLogos = [
+  { src: hero_logo1, top: "396px", left: "327.55px", blend: true },
+  { src: hero_logo2, top: "260px", left: "1619.88px" },
+  { src: hero_logo3, top: "900px", left: "217.55px" },
+  { src: hero_logo4, top: "747px", left: "1494px" },
+];
 
 const HeroPage = () => {
-   const textRef = useRef(null);
+  return (
+    <section className="w-full h-[1219px] ">
+      <div className=" z-10 overflow-hidden">
+        {/* Background Image */}
+        <div>
+          <Image
+            src={pikaso_enhance}
+            alt="hero image"
+            fill
+            className="object-cover"
+          />
+        </div>
 
-  useEffect(() => {
-    if (!textRef.current) return;
+        <div className="bg-[radial-gradient(37.22%_67.21%_at_50%_10.56%,#0D0D0F_0%,rgba(13,13,15,0.3)_49.5%,#0D0D0F_100%)] absolute"></div>
 
-    const textElement = textRef.current;
-
-    // Wrap each letter in a span, ignore spaces and <br>
-    textElement.innerHTML = Array.from(textElement.childNodes)
-      .map(node => {
-        if (node.nodeName === "BR") return "<br/>";
-        return node.textContent
-          .split("")
-          .map(letter =>
-            letter === " " ? " " : `<span class="inline-block">${letter}</span>`
-          )
-          .join("");
-      })
-      .join("");
-
-    const spans = textElement.querySelectorAll("span");
-
-    // Simple but uncommon animation: pop + rotate + wave
-    gsap.fromTo(
-      spans,
-      { opacity: 0, y: 40, rotation: -10, scale: 0.5 },
-      {
-        opacity: 1,
-        y: 0,
-        rotation: 0,
-        scale: 1,
-        duration: 1,
-        ease: "elastic.out(1, 0.5)",
-        stagger: 0.05,
-      }
-    );
-
-    // Optional continuous wave motion
-    gsap.to(spans, {
-      y: 4,
-      duration: 1,
-      ease: "sine.inOut",
-      repeat: 0,
-      yoyo: true,
-      stagger: {
-        amount: 1.5,
-      },
-    });
-  }, []);
-
-  const textRefs = useRef(null);
-
-  useEffect(() => {
-    gsap.fromTo(
-      textRefs.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power3.out",
-        delay: 0.5, // starts after a short delay
-      }
-    );
-  }, []);
-
-    const imgRef = useRef(null);
-
-  useEffect(() => {
-    gsap.fromTo(
-      imgRef.current,
-      { y: 300, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 2,
-        ease: "power3.out",
-        delay: 0.3,
-      }
-    );
-  }, []);
-  useEffect(() => {
-    gsap.fromTo(
-      ".glass-card",
-      { opacity: 0, y: 120, scale: 0.9, filter: "blur(10px)" },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        filter: "blur(0px)",
-        duration: 1.5,
-        ease: "power3.out",
-        stagger: 0.3,
-        scrollTrigger: {
-          trigger: ".glass-container",
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-  }, []);
-    return (
-        <div id="hero" className='flex items-end justify-end h-screen'>
-          <svg className='w-full absolute left-0 top-0 object-fit z-2' viewBox="0 0 1920 1111" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="1920" height="1111" fill="url(#paint0_radial_1401_3362)"/>
+        {/* <svg className="absolute inset-0 " width="1699" height="1219" viewBox="0 0 1699 1219" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_f_396_230)">
+            <ellipse cx="849.5" cy="620" rx="349.5" ry="154" fill="#39B1A9" />
+          </g>
           <defs>
-          <radialGradient id="paint0_radial_1401_3362" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(960 488) rotate(90) scale(623 960)">
-          <stop stop-opacity="0"/>
-          <stop offset="1"/>
-          </radialGradient>
+            <filter id="filter0_f_396_230" x="0" y="-34" width="1699" height="1308" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_396_230" />
+            </filter>
           </defs>
-          </svg>
-          <div className='absolute -z-10 w-full'>
-            <Video
-              src={myVideo}
-              autoPlay
-              loop
-              muted
-              playsInline
-              controls={false}
-              className="w-screen h-full object-cover top-0 left-0"
-            />
-          </div>
-          <div className='container mx-auto relative z-10 px-6 sm:px-0'>
-            <div className=''>
-                <div  className='pt-[70px] sm:pt-[70px] md:pt-[90px] lg:pt-[120px] xl:pt-[130px] 2xl:pt-[8%] relative pb-[36px] sm:pb-[40px] md:pb-[48px] lg:pb-[64px] xl:pb-24 2xl:pb-32'>
-                  <div className='flex items-start flex-col justify-start glass-card'>
-                    <button className="topethreaincobtn backdrop-blur-xl text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] 2xl:text-[18px] relative group duration-500">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-full absolute top-0 right-0 group-hover:-right-0.5 group-hover:scale-120 duration-400" viewBox="0 0 13 47" fill="none">
-                        <path d="M0.399902 46.4H12.3999V34.9M12.3999 11.9V0.400024C6.87119 0.400024 5.54964 0.400024 0.399902 0.400024" stroke="white" stroke-width="0.8" stroke-linecap="round"/>
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-full absolute top-0 left-0 group-hover:-left-0.5 group-hover:scale-120 duration-400" viewBox="0 0 13 47" fill="none">
-                        <path d="M12.3999 46.4H0.399902V34.9M0.399902 11.9V0.400024C5.92861 0.400024 7.25017 0.400024 12.3999 0.400024" stroke="white" stroke-width="0.8" stroke-linecap="round"/>
-                      </svg>
-                      Top Web3 Incubator</button>
-                    <h2 ref={textRef} className="tradines text-[24px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[48px] 2xl:text-[64px] font-bold text-start! mt-10">
-                      The Leading Web3 & Crypto <br className="sm:block hidden" /> Project Incubator
-                    </h2>
-                    <p ref={textRefs} className='bitstartp text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] 2xl:text-[18px] pt-[11px] sm:pt-3 md:pt-[13px] lg:pt-[14px] xl:pt-[15px] 2xl:pt-[16px] pb-[14px] sm:pb-[15px] md:pb-[16px] lg:pb-[20px] xl:pb-[24px] 2xl:pb-[30px] text-start! '>We help blockchain startups and crypto projects launch securely with proven incubation, <br className='lg:block hidden'/> tokenomics design, KYC, and long-term growth strategies.</p>
-                    <div className='flex items-center justify-start gap-[11px] sm:gap-3 md:gap-[13px] lg:gap-[14px] xl:gap-[15px] 2xl:gap-[16px]'>
-                        <button className='buttonauditelt relative  cursor-pointer flex items-center  group gap-[7.50px] group duration-300'>
-                           <div className="relative overflow-hidden h-full flex items-center justify-center">
-                            <span className="absolute top-0 opacity-100 group-hover:opacity-0 group-hover:-translate-y-3 transition-all duration-700 ease-in-out">
-                            Launch Your Project Today
-                            </span>
-                            <span className="opacity-0">Launch Your Project Today</span>
+        </svg> */}
 
-                            <span className="absolute bottom-[-20px] opacity-0 group-hover:bottom-0 group-hover:opacity-100 transition-all duration-700 ease-in-out">
-                            Launch Your Project Today
-                            </span>
-                        </div>
-                        </button>
-                        <button className="growingstabtn group overflow-hidden backdrop-blur-2xl relative ">
-                        <div className="relative overflow-hidden h-full flex items-center justify-center">
-                            <span className="absolute top-0 opacity-100 group-hover:opacity-0 group-hover:-translate-y-3 transition-all duration-700 ease-in-out">
-                            Explore SparkStarter
-                            </span>
-                            <span className="opacity-0">Explore SparkStarter</span>
 
-                            <span className="absolute bottom-[-20px] opacity-0 group-hover:bottom-0 group-hover:opacity-100 transition-all duration-700 ease-in-out">
-                            Explore SparkStarter
-                            </span>
-                        </div>
-                    </button>
-                      </div>
+        {/* Overlay Content */}
+        <div className="relative inset-0 z-10 py-6 px-4 md:px-8">
+
+          {/* HERO TEXT */}
+          <div className="flex justify-center">
+            <div className="pt-36 md:pt-40 flex items-center flex-col gap-4 md:gap-6">
+              <h1 className="text-white font-bold text-3xl md:text-[62px] leading-[130%] tracking-[0%] text-center align-middle">
+                Trading Isn’t the Product. <br className="hidden md:block" /> The System Is.
+              </h1>
+              <p className="text-white max-w-[676px] font-medium text-base md:text-[20px] text-center align-middle">
+                Whether you need a ready-to-go AI trading bot or robust AI APIs <br className="hidden md:block" />
+                to create your own tools, we’ve got you covered.
+              </p>
+
+              <div className="flex items-center justify-center hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] hover:scale-[1.03] transition-all duration-300">
+                <button className="text-white w-48 bg-white/10 h-[52px] opacity-100 rounded-[100px] border border-[#51F1E6] font-semibold text-[16px] leading-[140%] cursor-pointer">
+                  Connect Wallet
+                </button>
+              </div>
+
+              {/* CARDS GRID */}
+              <div className="pt-4 md:pt-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 md:gap-3 w-full md:w-[1140px] opacity-100">
+                {cardData.map((card, index) => (
+                  <div
+                    key={index}
+                    className={`bg-[#FFFFFF0F] h-[146px] opacity-100 rounded-[20px] ${card.extraWidth ? "w-full md:w-[562px]" : "w-full"
+                      }`}
+                  >
+                    <div className="flex flex-col pt-8 pl-7.5 gap-1 opacity-100">
+                      <h1 className="text-white font-semibold text-[36px] leading-[150%] align-middle">
+                        {card.value}
+                      </h1>
+                      <p className="text-[#ABB2B5] font-medium text-[16px] leading-[150%] align-middle">
+                        {card.label}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                ))}
+              </div>
+
+              <div className="pt-2 md:pt-10 pb-2">
+                <p className="text-[#FAFAFA] font-medium text-[16px] leading-[150%] tracking-[0%] text-center">
+                  Trusted by 50,000+ trader worldwide.
+                </p>
+              </div>
+
+              <div className="flex gap-8">
+                {logos.map((logo, idx) => (
+                  <div key={idx} className="flex items-center gap-4">
+
+                    {/* Left vertical line */}
+                    <div className="w-px h-[30px] bg-[#1D1E21]"></div>
+
+                    {/* Logo */}
+                    <Image
+                      src={logo.src}
+                      alt={logo.src}
+                      width={logo.width}
+                      height={logo.height}
+                    />
+                  </div>
+                ))}
+              </div>
+
             </div>
           </div>
         </div>
-    );
+
+        {/* ABSOLUTE DECOR IMAGES */}
+        {heroLogos.map((item, idx) => (
+          <div
+            key={idx}
+            className={`hidden lg:block absolute`}
+            style={{
+              top: item.top,
+              left: item.left,
+              mixBlendMode: item.blend ? "luminosity" : "normal",
+            }}
+          >
+            <Image
+              src={item.src}
+              alt="logo"
+              width={150}
+              height={150}
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+
+  );
 };
 
 export default HeroPage;

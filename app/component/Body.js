@@ -1,22 +1,17 @@
-import Footer from './Footer';
-import Pagefive from './Pagefive';
-import Pagefore from './Pagefore';
-import PageLogo from './PageLogo';
 import Pageone from './Pageone';
 import Pagetwo from './Pagetwo';
 import Pagethree from './Pagethree';
-
+import Pagefore from './Pagefore';
+import Footer from './Footer';
 
 const Body = () => {
     return (
         <div className='relative overflow-hidden'>
-            <PageLogo/>
-            <Pagefive/>
-            <Pagefore/>
-            <Pageone/>
-            <Pagetwo/>
-            <Pagethree/>
-            <Footer/>
+            <Pageone />
+            <Pagetwo />
+            <Pagethree />
+            <Pagefore />
+            <Footer />
         </div>
     );
 };

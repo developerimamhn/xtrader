@@ -2,317 +2,167 @@
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect, useRef } from 'react';
-import Video from 'next-video';
-import myVideo4 from '../../videos/5_Astronaut.mp4';
-import { h2Animation } from './animations/h2Animation.js';
-
 gsap.registerPlugin(ScrollTrigger);
-
+import Image from 'next/image';
+import image47 from './image/image47.svg';
+import { useState } from 'react';
 
 const Pagetwo = () => {
-  const wrapperRef = useRef(null);
-  const gridItem1Ref = useRef(null);
-  const gridItem2Ref = useRef(null);
-  const gridItem3Ref = useRef(null);
-  const titleRef = useRef(null);
-  const acquireRef = useRef(null);
-  
-  useEffect(() => {
-    const mm = gsap.matchMedia();
-  
-    mm.add(
-      {
-        isDesktop: '(min-width: 768px)',
-        isMobile: '(max-width: 767px)',
-      },
-      (context) => {
-        const { isDesktop, isMobile } = context.conditions;
-  
-        // Skip all animations on mobile
-        if (isMobile) return;
-  
-        // Main wrapper animation (desktop only)
-        gsap.fromTo(
-          wrapperRef.current,
-          { y: 100, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.5,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: wrapperRef.current,
-              start: 'top 80%',
-              end: 'top 50%',
-              scrub: 0.8,
-            },
-          }
-        );
-  
-        // Title animation (desktop only)
-        gsap.fromTo(
-          titleRef.current,
-          { y: 30, opacity: 0, scale: 0.95 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: titleRef.current,
-              start: 'top 85%',
-              end: 'top 50%',
-              scrub: 0.8,
-            },
-          }
-        );
-  
-        // Grid items animation (desktop only)
-        [gridItem1Ref, gridItem2Ref, gridItem3Ref].forEach((ref, index) => {
-          gsap.fromTo(
-            ref.current,
-            { y: 50, opacity: 0, scale: 0.9 },
-            {
-              y: 0,
-              opacity: 1,
-              scale: 1,
-              duration: 1,
-              delay: index * 0.25,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: ref.current,
-                start: 'top 80%',
-                end: 'top 30%',
-                scrub: 0.8,
-              },
-            }
-          );
-        });
-  
-        // Acquire CRX section animation (desktop only)
-        gsap.fromTo(
-          acquireRef.current,
-          { y: 50, opacity: 0, scale: 0.95 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 1.2,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: acquireRef.current,
-              start: 'top 85%',
-              end: 'top 40%',
-              scrub: 0.8,
-            },
-          }
-        );
-      }
-    );
-  
-    return () => mm.revert(); // Cleanup
-  }, []);
-  
-  const itemRefs = useRef([]);
-  
-  useEffect(() => {
-    const mm = gsap.matchMedia();
-  
-    mm.add(
-      {
-        isDesktop: '(min-width: 768px)',
-        isMobile: '(max-width: 767px)',
-      },
-      (context) => {
-        const { isMobile } = context.conditions;
-  
-        // Skip animations on mobile
-        if (isMobile) return;
-  
-        // Item animations (desktop only)
-        itemRefs.current.forEach((el, index) => {
-          if (!el) return;
-  
-          gsap.fromTo(
-            el,
-            {
-              autoAlpha: 0,
-              y: 50,
-            },
-            {
-              autoAlpha: 1,
-              y: 0,
-              duration: 0.3,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: el,
-                start: 'top 100%',
-                toggleActions: 'play none none none',
-              },
-              delay: index * 0.1,
-            }
-          );
-        });
-      }
-    );
-  
-    return () => mm.revert(); // Cleanup
-  }, []);
+  const [activeCard, setActiveCard] = useState("first");
+  const [active, setActive] = useState("trading");
 
- const listRef = useRef([]);
-  
-  useEffect(() => {
-    const mm = gsap.matchMedia();
+  return (
+    <div className="relative w-full h-[1027px] bg-[#0D0D0F]">
+      {/* Background Image */}
+      <Image
+        src={image47}
+        alt="logo"
+        fill
+        className="object-cover"
+      />
 
-    mm.add(
-      {
-        isDesktop: '(min-width: 768px)',
-        isMobile: '(max-width: 767px)',
-      },
-      (context) => {
-        const { isMobile } = context.conditions;
-
-        if (isMobile) return; // Skip mobile animation
-
-        // Animate each <li> one by one
-        gsap.fromTo(
-          listRef.current,
-          { y: 30, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.6,
-            stagger: 0.15, // one by one effect
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: listRef.current[0], // start animation when first li comes
-              start: 'top 85%',
-              end: 'bottom 50%',
-              toggleActions: 'play none none none',
-            },
-          }
-        );
-      }
-    );
-
-    return () => mm.revert();
-  }, []);
-  
-const itemsRef = useRef([]);
-
-  const data = [
-    {
-      title: "Transaction Tax Allocation",
-      text: "Of the 5% tax, 20% (equivalent to 1%) is deposited directly into a staking pool for revenue sharing."
-    },
-    {
-      title: "Additional Revenue Pooling",
-      text: "An additional 40% of all revenue generated from our incubations is funneled into the same staking pool, amplifying the rewards available."
-    },
-    {
-      title: "Inclusive Staking",
-      text: "There’s no minimum staking threshold—any $GXN holder, regardless of amount, can participate. A minimum lock period of 30 days applies, with ETH rewards distributed from day one of staking. The more you stake and the longer you lock, the greater your earnings."
-    },
-    {
-      title: "Regular Deposits",
-      text: "Every 7 days, fresh funds are added to the staking pool, ensuring consistent growth and opportunities for rewards."
-    }
-  ];
-    useEffect(() => {
-    itemsRef.current.forEach((el, i) => {
-      gsap.fromTo(
-        el,
-        {
-          opacity: 0,
-          y: 40,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-          delay: i * 0.15,
-          scrollTrigger: {
-            trigger: el,
-            start: "top 90%",
-          },
-        }
-      );
-    });
-  }, []);
-    useEffect(() => {
-    h2Animation();
-  }, []);
-    return (
-        <div id='About' ref={wrapperRef} className='py-[40px] sm:py-[40px] md:py-[48px] lg:py-[64px] xl:py-[96px] 2xl:py-[120px] px-6 sm:px-0 relative overflow-hidden'>
-           <div className='container mx-auto xl:px-[270px]'>
-              <div  className='vadesigns p-[24px] sm:p-[32px] md:p-[36px] lg:p-[40px] xl:p-[48px] 2xl:p-[64px]'>
-                <button className="topethreaincobtn text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] 2xl:text-[18px] relative group duration-500">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-full absolute top-0 right-0 group-hover:-right-0.5 group-hover:scale-120 duration-400" viewBox="0 0 13 47" fill="none">
-                    <path d="M0.399902 46.4H12.3999V34.9M12.3999 11.9V0.400024C6.87119 0.400024 5.54964 0.400024 0.399902 0.400024" stroke="white" stroke-width="0.8" stroke-linecap="round"/>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-full absolute top-0 left-0 group-hover:-left-0.5 group-hover:scale-120 duration-400" viewBox="0 0 13 47" fill="none">
-                    <path d="M12.3999 46.4H0.399902V34.9M0.399902 11.9V0.400024C5.92861 0.400024 7.25017 0.400024 12.3999 0.400024" stroke="white" stroke-width="0.8" stroke-linecap="round"/>
-                  </svg>
-                  Revenue
-                </button>
-                <h2 className="tradines animate-h2 text-[24px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[48px] 2xl:text-[52px] font-bold  mt-[12px] sm:mt-[13px] md:mt-[14px] lg:mt-[15px] xl:mt-[16px] 2xl:mt-[20px]">
-                  How Our Revenue  <span className="text-white/70!">Model Works</span>
-                </h2>
-                <p className='bitstartpsss animate-h2 text-white/80 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] 2xl:text-[18px] pt-[11px] sm:pt-[12px] md:pt-[13px] lg:pt-[14px] xl:pt-[15px] 2xl:pt-[16px]'>With the Genesis $GXN token, every project incubated generates community-driven rewards. Through staking and revenue-sharing pools, users benefit from continuous returns.</p>
-                <div className='vibesstyle relative p-[16px] sm:p-[20px] md:p-[24px] lg:p-[32px] xl:p-[36px] 2xl:p-[40px] mt-[16px] sm:mt-[20px] md:mt-[24px] lg:mt-[32px] xl:mt-[36px] 2xl:mt-[40px] overflow-hidden'>
-                  <div class="absolute inset-0 -z-9 mix-blend-luminosity bg-[linear-gradient(280deg,rgba(10,10,10,0)_22.74%,#0A0A0A_80.78%)]"></div>
-                  <div className='absolute top-0 right-0 -z-10 w-auto h-full scale-x-[-1] grayscale-100'>
-                    <Video
-                      src={myVideo4}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      controls={false}
-                      className="w-full h-full object-cover "
-                    />
-                  </div>
-                  <div className="space-y-6 sm:pr-[30%]">
-                  <ul className="relative z-10 flex flex-col gap-[14px] sm:gap-[15px] md:gap-[16px] lg:gap-[20px] xl:gap-[24px] 2xl:gap-[32px]">
-                    {data.map((item, i) => (
-                      <li
-                        key={i}
-                        ref={(el) => (itemsRef.current[i] = el)}
-                        className=""
-                      >
-                        <h2 className="tradines text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] 2xl:text-[18px]">
-                          {item.title}
-                        </h2>
-
-                        <p className="bitstartpsss text-white/80 text-[11px] sm:text-[12px] md:text-[13px] lg:text-[14px] xl:text-[15px] 2xl:text-[16px] pt-[5px] md:pt-[8px]">
-                          {item.text}
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
-                  </div>
-                </div>
-                <div className='flex items-center justify-center mt-[24px] sm:mt-[32px] md:mt-[36px] lg:mt-[40px] xl:mt-[48px] 2xl:mt-[64px]'>
-                <button className='buttonauditelt relative  cursor-pointer flex items-center  group gap-[7.50px] group duration-300'>
-                  <div className="relative overflow-hidden h-full flex items-center justify-center">
-                    <span className="absolute top-0 opacity-100 group-hover:opacity-0 group-hover:-translate-y-3 transition-all duration-700 ease-in-out">
-                    Stake $GXN →
-                    </span>
-                    <span className="opacity-0">Stake $GXN →</span>
-
-                    <span className="absolute bottom-[-20px] opacity-0 group-hover:bottom-0 group-hover:opacity-100 transition-all duration-700 ease-in-out">
-                    Stake $GXN →
-                    </span>
-                  </div>
-                </button>
-              </div>
-              </div>
-           </div>
+      {/* Content */}
+      <div className="absolute inset-0">
+        {/* Title */}
+        <div className="pt-4 md:pt-20 px-4">
+          <h1 className="text-white font-bold text-[32px] md:text-[48px] leading-[130%] tracking-[0%] text-center align-middle">
+            Choose Your Plan
+          </h1>
+          <p className="md:pt-4 text-white font-medium text-[14px] md:text-[16px] leading-[150%] tracking-[0%] text-center align-middle">
+            Choose a plan that fits your needs.
+          </p>
         </div>
-    );
+
+        {/* Toggle Buttons */}
+        <div className="flex items-center justify-center pt-4 md:pt-14 px-4">
+          <div className=" w-full max-w-[358px] h-[68px] bg-[#FFFFFF0D] border border-[#FFFFFF1A] rounded-[100px] p-2 flex items-center justify-between hover:border-[#51F1E6] hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] transition-all duration-300">
+
+            {/* Left Button — Trading Bot */}
+            <div
+              onClick={() => setActive("trading")}
+              className={`w-1/2 h-[52px] rounded-[100px] flex items-center justify-center cursor-pointer
+            ${active === "trading"
+                  ? "bg-[#FFFFFF1A] border border-[#51F1E6] "
+                  : ""
+                }`}
+            >
+              <button className="text-white font-semibold text-[14px] md:text-[16px] leading-[140%] cursor-pointer">
+                Trading Bot
+              </button>
+            </div>
+
+            {/* Right Button — Coming Soon */}
+            <div
+              onClick={() => setActive("soon")}
+              className={`w-1/2 h-[52px] rounded-[100px] flex items-center justify-center cursor-pointer
+            ${active === "soon"
+                  ? "bg-[#FFFFFF1A] border border-[#51F1E6]"
+                  : ""
+                }`}
+            >
+              <button className="text-white font-semibold text-[14px] md:text-[16px] leading-[140%] cursor-pointer">
+                Coming Soon
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Header Card */}
+        <div className="flex items-center justify-center pt-4 md:pt-6 px-3 cursor-pointer">
+          <div className={`flex items-center bg-[#FFFFFF08] w-full max-w-[1056px] h-[76px] rounded-[20px] px-6 md:px-10 hover:scale-[1.03] hover:shadow-[0_0_25px_#51F1E655] transition-all duration-300
+            ${activeCard === "first" ? "border-2 border-[#51F1E6]" : "border border-[#FFFFFF29]"}`}>
+            <div className="grid grid-cols-[90px_180px_1fr] md:grid-cols-[180px_260px_1fr]">
+              <p className="text-white font-normal text-[16px] md:text-[20px] leading-[140%] tracking-[0%] align-middle uppercase">
+                Tier
+              </p>
+              <p className="text-white font-normal text-[16px] md:text-[20px] leading-[140%] tracking-[0%] align-middle uppercase">
+                Price/month
+              </p>
+              <p className="text-white font-normal text-[16px] md:text-[20px] leading-[140%] tracking-[0%] align-middle uppercase">
+                Key benefits
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Starter Card */}
+        <div className="flex items-center justify-center pt-4 px-3 cursor-pointer"
+          onMouseEnter={() => setActiveCard("starter")}
+          onMouseLeave={() => setActiveCard("first")}>
+          <div className={`md:grid md:grid-cols-[180px_260px_1fr] flex flex-col items-start md:items-center bg-[#FFFFFF08] w-full max-w-[1056px] min-h-[135px] rounded-[20px] p-6 md:px-10 hover:scale-[1.03] hover:shadow-[0_0_25px_#51F1E655] transition-all duration-300
+            ${activeCard === "starter" ? "border-2 border-[#51F1E6]" : "border border-[#FFFFFF29]"}`}>
+            <button className="text-white text-center w-[113px] h-[37px] opacity-100 rounded-[80px] border border-[#FFFFFF3D] uppercase bg-[radial-gradient(130%_130%_at_50%_50%,rgba(255,255,255,0)_25%,#FFFFFF_100%)]">
+              Starter
+            </button>
+            <h1 className="pt-4 md:pt-0 text-white font-bold text-[36px] md:text-[48px] leading-[100%] tracking-[0%] align-middle">
+              $79
+            </h1>
+            <p className="pt-3 md:pt-0 text-white font-medium text-[16px] md:text-[19px] leading-[150%] tracking-[0%] align-middle">
+              Al-powered trading for beginners. Fully{" "}
+              <br className="hidden md:block" /> automated, safe, and simple.
+              Single chain, <br className="hidden md:block" /> Trading
+              Ethereum, Bitcoin,
+            </p>
+          </div>
+        </div>
+
+        {/* Pro Card */}
+        <div className="flex items-center justify-center pt-4 px-3 cursor-pointer"
+          onMouseEnter={() => setActiveCard("pro")}
+          onMouseLeave={() => setActiveCard("first")}>
+          <div className={`md:grid md:grid-cols-[180px_260px_1fr] flex flex-col items-start md:items-center bg-[#FFFFFF08] w-full max-w-[1056px] min-h-[106px] opacity-100 rounded-[20px] p-6 md:px-10 hover:scale-[1.03] hover:shadow-[0_0_25px_#51F1E655] transition-all duration-300
+            ${activeCard === "pro" ? "border-2 border-[#51F1E6]" : "border border-[#FFFFFF29]"}`}>
+            <button className="text-white w-[77px] h-[37px] top-[49px] opacity-100 rounded-[80px] border border-[#FFFFFF3D] uppercase bg-[radial-gradient(130%_130%_at_50%_50%,rgba(255,255,255,0)_25%,#FFFFFF_100%)]">
+              Pro
+            </button>
+            <h1 className="pt-4 md:pt-0 text-white font-bold text-[36px] md:text-[48px] leading-[100%] tracking-[0%] align-middle">
+              $149
+            </h1>
+            <p className="pt-3 md:pt-0 text-white font-medium text-[16px] md:text-[19px] leading-[150%] tracking-[0%] align-middle">
+              Starter Packet, multi-chain,{" "}
+              <span className="font-bold text-[19px] leading-[150%] tracking-[0%] align-middle text-[#51F1E6]">
+                BTC cashback 2%,
+              </span>{" "}
+              <br className="hidden md:block" /> priority support.
+            </p>
+          </div>
+        </div>
+
+        {/* Elite Card */}
+        <div className="flex items-center justify-center pt-4 px-3 cursor-pointer"
+          onMouseEnter={() => setActiveCard("elite")}
+          onMouseLeave={() => setActiveCard("first")}>
+          <div className={`md:grid md:grid-cols-[180px_260px_1fr] flex flex-col items-start md:items-center bg-[#FFFFFF08] w-full max-w-[1056px] min-h-[106px] opacity-100 rounded-[20px] p-6 md:px-10 hover:scale-[1.03] hover:shadow-[0_0_25px_#51F1E655] transition-all duration-300
+            ${activeCard === "elite" ? "border-2 border-[#51F1E6]" : "border border-[#FFFFFF29]"}`}>
+            <button className="text-white w-[85px] h-[37px] opacity-100 rounded-[80px] border border-[#FFFFFF3D] uppercase bg-[radial-gradient(130%_130%_at_50%_50%,rgba(255,255,255,0)_25%,#FFFFFF_100%)]">
+              Elite
+            </button>
+            <h1 className="pt-4 md:pt-0 text-white font-bold text-[36px] md:text-[48px] leading-[100%] tracking-[0%] align-middle">
+              $199
+            </h1>
+            <p className="pt-3 md:pt-0 text-white font-medium text-[16px] md:text-[19px] leading-[150%] tracking-[0%] align-middle">
+              Pro Packet +{" "}
+              <span className="font-bold text-[19px] leading-[150%] tracking-[0%] align-middle text-[#51F1E6]">
+                BTC cashback 4%,
+              </span>{" "}
+              full annual report <br className="hidden md:block" /> and
+              partner reward programs
+            </p>
+          </div>
+        </div>
+
+        {/* button */}
+        <div className=" flex items-center justify-center mt-6 md:mt-10">
+          <div className="flex items-center justify-center w-[159px] h-[52px] opacity-100 rounded-[100px] bg-white/10 border border-[#51F1E6] hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] hover:scale-[1.03] transition-all duration-300 cursor-pointer">
+            <button className="text-white font-semibold text-[16px] leading-[140%] tracking-[0] cursor-pointer">
+              Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Pagetwo;
