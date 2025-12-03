@@ -21,6 +21,24 @@ const Footer = () => {
 
   return (
     <section className="relative w-full h-[506px] bg-[#0D0D0F] overflow-hidden">
+
+      <svg className='pt-[158px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3  pointer-events-none' viewBox="0 0 1065 506" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_f_396_133)">
+          <ellipse cx="532.051" cy="511.188" rx="73.7813" ry="146.188" fill="url(#paint0_linear_396_133)" />
+        </g>
+        <defs>
+          <filter id="filter0_f_396_133" x="9.15527e-05" y="-93.2692" width="1064.1" height="1208.91" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feGaussianBlur stdDeviation="229.135" result="effect1_foregroundBlur_396_133" />
+          </filter>
+          <linearGradient id="paint0_linear_396_133" x1="532.051" y1="365" x2="532.051" y2="657.376" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#51F1E6" />
+            <stop offset="1" stop-color="#39B1A9" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       {/* TOP ROW */}
       <div className="max-w-[1233px] mx-auto pt-[84px] px-6 md:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Logo */}

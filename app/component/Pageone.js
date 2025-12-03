@@ -37,7 +37,7 @@ const Pageone = () => {
             <div className="relative w-full md:w-[600px] h-0.5 bg-linear-to-r from-transparent to-white">
               <div className="w-3 h-3 bg-white rounded-full absolute right-0 top-1/2 -translate-y-1/2"></div>
             </div>
-            <div className="mt-10 w-[600px] h-[111px] opacity-100 flex flex-col gap-4">
+            <div className="mt-10 opacity-100 flex flex-col gap-4">
               <h3 className="text-white font-semibold text-2xl md:text-[32px] leading-[35px] tracking-[0%] align-middle">
                 Compound, Don’t Gamble
               </h3>
@@ -53,7 +53,7 @@ const Pageone = () => {
             <div className="relative w-full md:w-[600px] h-0.5 bg-linear-to-l from-transparent to-white">
               <div className="w-3 h-3 bg-white rounded-full absolute left-0 top-1/2 -translate-y-1/2"></div>
             </div>
-            <div className="mt-10 w-[600px] h-[111px] opacity-100 flex flex-col gap-4">
+            <div className="mt-10 opacity-100 flex flex-col gap-4">
               <h3 className="text-white font-semibold text-2xl md:text-[32px] leading-[35px] tracking-[0%] align-middle">
                 Institutional Execution, Self-Custody
               </h3>
@@ -68,7 +68,7 @@ const Pageone = () => {
             <div className="relative w-full md:w-[600px] h-0.5 bg-linear-to-r from-transparent to-white">
               <div className="w-3 h-3 bg-white rounded-full absolute right-0 top-1/2 -translate-y-1/2"></div>
             </div>
-            <div className="mt-10 w-[600px] h-[111px] opacity-100 flex flex-col gap-4">
+            <div className="mt-10 opacity-100 flex flex-col gap-4">
               <h3 className="text-white font-semibold text-2xl md:text-[32px] leading-[35px] tracking-[0%] align-middle">
                 Intelligence That Grows with You
               </h3>

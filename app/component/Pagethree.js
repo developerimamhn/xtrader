@@ -77,7 +77,7 @@ const Pagethree = () => {
 
               <div>
                 {/* Header Row */}
-                <ul className="bg-[#252429] backdrop-blur-[380px] w-full h-[42px] rounded-2xl flex items-center justify-between px-2 md:px-6">
+                <ul className="bg-[#252429] backdrop-blur-[380px] w-full h-11 rounded-2xl flex items-center justify-between px-2 md:px-6">
 
                   {["coin", "Price", "Change", "Volume (24h)"].map((item, index) => (
                     <li

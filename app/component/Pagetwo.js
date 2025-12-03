@@ -21,6 +21,20 @@ const Pagetwo = () => {
         className="object-cover"
       />
 
+      {/* Glow SVG Under Text */}
+      <svg className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3  pointer-events-none' viewBox="0 0 1969 1219" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_f_1401_4146)">
+          <ellipse cx="849.5" cy="620" rx="349.5" ry="154" fill="#39B1A9" />
+        </g>
+        <defs>
+          <filter id="filter0_f_1401_4146" x="0" y="-34" width="1699" height="1308" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_1401_4146" />
+          </filter>
+        </defs>
+      </svg>
+
       {/* Content */}
       <div className="absolute inset-0">
         {/* Title */}
