@@ -34,16 +34,10 @@ const logos = [
   { src: compnay_logo6, width: 135.6, height: 30 },
 ];
 
-const heroLogos = [
-  { src: hero_logo1, top: "396px", left: "327.55px", blend: true },
-  { src: hero_logo2, top: "260px", left: "1619.88px" },
-  { src: hero_logo3, top: "900px", left: "217.55px" },
-  { src: hero_logo4, top: "747px", left: "1494px" },
-];
 
 const HeroPage = () => {
   return (
-    <section className="w-full h-[1219px] ">
+    <section className="w-full h-screen ">
       <div className=" z-10 overflow-hidden">
         {/* Background Image */}
         <div>
@@ -56,61 +50,48 @@ const HeroPage = () => {
         </div>
 
         <div className="bg-[radial-gradient(37.22%_67.21%_at_50%_10.56%,#0D0D0F_0%,rgba(13,13,15,0.3)_49.5%,#0D0D0F_100%)] absolute"></div>
-
-        {/* <svg className="absolute inset-0 " width="1699" height="1219" viewBox="0 0 1699 1219" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g filter="url(#filter0_f_396_230)">
-            <ellipse cx="849.5" cy="620" rx="349.5" ry="154" fill="#39B1A9" />
-          </g>
-          <defs>
-            <filter id="filter0_f_396_230" x="0" y="-34" width="1699" height="1308" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-              <feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_396_230" />
-            </filter>
-          </defs>
-        </svg> */}
-
-
         {/* Overlay Content */}
-        <div className="relative inset-0 z-10 py-6 px-4 md:px-8">
-
-          {/* HERO TEXT */}
-          <div className="flex justify-center">
-            <div className="pt-36 md:pt-40 flex items-center flex-col gap-4 md:gap-6">
-              <h1 className="text-white font-bold text-3xl md:text-[62px] leading-[130%] tracking-[0%] text-center align-middle">
+        <div className="relative inset-0 z-10 py-6 px-4 md:px-8 container mx-auto">
+          <div className="">
+            <div className="pt-36 md:pt-40  gap-4 md:gap-6">
+              <h1 className="text-white font-bold text-3xl md:text-[62px] leading-[130%] text-center relative w-full">
+                <Image className="-right-[15%] top-1/2 -translate-y-[50%] absolute grayscale-100 animate-bounce" src={hero_logo2} alt="Loading..."/>
                 Trading Isn’t the Product. <br className="hidden md:block" /> The System Is.
               </h1>
-              <p className="text-white max-w-[676px] font-medium text-base md:text-[20px] text-center align-middle">
+              <p className="text-white font-medium text-base md:text-[20px] text-center align-middle relative w-full pt-[10px] sm:pt-[11px] md:pt-[12px]">
+                <Image className="left-0 top-1/2 -translate-y-[50%] absolute grayscale-100 animate-bounce" src={hero_logo1} alt="Loading..."/>
+
                 Whether you need a ready-to-go AI trading bot or robust AI APIs <br className="hidden md:block" />
                 to create your own tools, we’ve got you covered.
               </p>
 
-              <div className="flex items-center justify-center hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] hover:scale-[1.03] transition-all duration-300">
-                <button className="text-white w-48 bg-white/10 h-[52px] opacity-100 rounded-[100px] border border-[#51F1E6] font-semibold text-[16px] leading-[140%] cursor-pointer">
+              <div className="flex items-center rounded-[100px] justify-center pt-[13px] sm:pt-[14px] md:pt-[15px] lg:pt-[16px] xl:pt-[20px] 2xl:pt-[24px]">
+                <button className="text-white w-48 bg-white/10 h-[52px] opacity-100 rounded-[100px] border border-[#51F1E6] font-semibold text-[16px] leading-[140%] cursor-pointer hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] hover:scale-[1.03] transition-all duration-300">
                   Connect Wallet
                 </button>
               </div>
-
-              {/* CARDS GRID */}
-              <div className="pt-4 md:pt-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 md:gap-3 w-full md:w-[1140px] opacity-100">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 md:gap-3 w-full opacity-100 relative mt-[32px] sm:mt-[36px] md:mt-[40px] lg:mt-[48px] xl:mt-[64px] 2xl:mt-[100px]">
+                <Image className="-left-[12%] -bottom-[20%] absolute grayscale-100 animate-bounce" src={hero_logo3} alt="Loading..."/>
+                <Image className="-right-[8%] top-1/2 -translate-y-[50%] absolute grayscale-100 animate-bounce" src={hero_logo4} alt="Loading..."/>
                 {cardData.map((card, index) => (
                   <div
                     key={index}
-                    className={`bg-[#FFFFFF0F] h-[146px] opacity-100 rounded-[20px] ${card.extraWidth ? "w-full md:w-[562px]" : "w-full"
-                      }`}
+                    className={`bg-[#FFFFFF0F] rounded-[20px] backdrop-blur-2xl w-full px-[14px] sm:px-[15px] md:px-[16px] lg:px-[20px] xl:px-[24px] 2xl:px-[30px] py-[14px] sm:py-[15px] md:py-[16px] lg:py-[20px] xl:py-[24px] 2xl:py-[32px]
+                      ${index === cardData.length - 1 ? "col-span-2" : ""}
+                    `}
                   >
-                    <div className="flex flex-col pt-8 pl-7.5 gap-1 opacity-100">
-                      <h1 className="text-white font-semibold text-[36px] leading-[150%] align-middle">
+                    <div className="absolute left-1/2 -translate-x-1/2 -top-px block h-full w-full  animate-gradient bg-linear-to-tl bg-[linear-gradient(339deg,#ABB2B5,#ABB2B520,#ABB2B520,#ABB2B520,#ABB2B520,#ABB2B520,#FFFFFF00,#abb2b5be,#abb2b5be,#abb2b5be,#abb2b5be,#abb2b5be,#ABB2B5)] bg-size-[var(--bg-size)_100%] rounded-[inherit] [mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] p-px mask-subtract!"></div>
+                    <div className="flex flex-col gap-1">
+                      <h1 className="text-white font-semibold text-[36px] leading-[150%]">
                         {card.value}
                       </h1>
-                      <p className="text-[#ABB2B5] font-medium text-[16px] leading-[150%] align-middle">
+                      <p className="text-[#ABB2B5] font-medium text-[16px] leading-[150%]">
                         {card.label}
                       </p>
                     </div>
                   </div>
                 ))}
               </div>
-
               <div className="pt-2 md:pt-10 pb-2">
                 <p className="text-[#FAFAFA] font-medium text-[16px] leading-[150%] tracking-[0%] text-center">
                   Trusted by 50,000+ trader worldwide.
@@ -138,26 +119,6 @@ const HeroPage = () => {
             </div>
           </div>
         </div>
-
-        {/* ABSOLUTE DECOR IMAGES */}
-        {heroLogos.map((item, idx) => (
-          <div
-            key={idx}
-            className={`hidden lg:block absolute`}
-            style={{
-              top: item.top,
-              left: item.left,
-              mixBlendMode: item.blend ? "luminosity" : "normal",
-            }}
-          >
-            <Image
-              src={item.src}
-              alt="logo"
-              width={150}
-              height={150}
-            />
-          </div>
-        ))}
       </div>
     </section>
 
