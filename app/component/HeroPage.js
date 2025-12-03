@@ -66,7 +66,7 @@ const HeroPage = () => {
               </p>
 
               <div className="flex items-center rounded-[100px] justify-center pt-[13px] sm:pt-[14px] md:pt-[15px] lg:pt-[16px] xl:pt-[20px] 2xl:pt-[24px]">
-                <button className="text-white w-48 bg-white/10 h-[52px] opacity-100 rounded-[100px] border border-[#51F1E6] font-semibold text-[16px] leading-[140%] cursor-pointer hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] hover:scale-[1.03] transition-all duration-300">
+                <button className="text-white px-9.5 py-3.5 bg-white/10 opacity-100 rounded-[100px] border border-[#51F1E6] font-semibold text-[16px] leading-[140%] cursor-pointer hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] hover:scale-[1.03] transition-all duration-300">
                   Connect Wallet
                 </button>
               </div>

@@ -18,7 +18,7 @@ const Pagethree = () => {
   const [active, setActive] = useState("trading");
 
   return (
-    <div className="relative w-full h-[1027px] bg-[#0D0D0F]">
+    <div className="relative w-full h-screen bg-[#0D0D0F]">
       {/* Background Image */}
       <Image
         src={image48}
@@ -43,18 +43,18 @@ const Pagethree = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
           <div
             onClick={() => setActive("trading")}
-            className={`bg-white/10 w-[183px] h-[52px] opacity-100 rounded-[100px] border flex justify-center cursor-pointer hover:border-[#51F1E6] hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] hover:scale-[1.03] transition-all duration-300
+            className={`bg-white/5 backdrop-blur-xs px-9.5 py-3.5 opacity-100 rounded-[100px] border flex justify-center cursor-pointer hover:border-[#51F1E6] hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] hover:scale-[1.03] transition-all duration-300
           ${active === "trading"
-                ? "bg-[#FFFFFF1A] border border-[#51F1E6] "
+                ? "bg-white/10 border border-[#51F1E6] "
                 : "border-white/20"
               }`}>
             <button className="text-white cursor-pointer">Read the Docs</button>
           </div>
           <div
             onClick={() => setActive("soon")}
-            className={`flex justify-center w-[193px] h-[52px] opacity-100 bg-white/5 rounded-[100px] border cursor-pointer hover:border-[#51F1E6] hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] hover:scale-[1.03] transition-all duration-300
+            className={`flex justify-center px-9.5 py-3.5 opacity-100 bg-white/5 backdrop-blur-xs rounded-[100px] border cursor-pointer hover:border-[#51F1E6] hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] hover:scale-[1.03] transition-all duration-300
           ${active === "soon"
-                ? "bg-[#FFFFFF1A] border border-[#51F1E6]"
+                ? "bg-white/10 border border-[#51F1E6]"
                 : "border-white/20"
               }`}>
             <button className="text-[#FAFAFA] cursor-pointer">See Our Pricing</button>
@@ -73,7 +73,7 @@ const Pagethree = () => {
             />
 
             {/* Inner Glass Card */}
-            <div className="bg-[#FFFFFF0A] backdrop-blur-[50px] w-full max-w-[760px] h-[311px] absolute top-[50px] left-1/2 -translate-x-1/2 rounded-[30px] border border-[#FFFFFF1F] p-6 opacity-100">
+            <div className="bg-[#FFFFFF0A] backdrop-blur-[50px] w-full max-w-[760px] absolute top-[50px] left-1/2 -translate-x-1/2 rounded-[30px] border border-[#FFFFFF1F] p-6 opacity-100">
 
               <div>
                 {/* Header Row */}
@@ -92,7 +92,7 @@ const Pagethree = () => {
               </div>
 
               <div>
-                <ul className="bg-[#FFFFFF0D] backdrop-blur-[380px] w-full h-[65px] opacity-100 rounded-2xl border border-[#FFFFFF3B] flex items-center justify-between px-2 md:px-6 mt-2">
+                <ul className="bg-[#FFFFFF0D] backdrop-blur-[380px] w-full py-3 opacity-100 rounded-2xl border border-[#FFFFFF3B] flex items-center justify-between px-2 md:px-6 mt-2">
                   <li className="flex w-10 h-10 gap-3">
                     <Image
                       src={group17}
@@ -126,7 +126,7 @@ const Pagethree = () => {
               </div>
 
               <div>
-                <ul className="bg-[#FFFFFF0D] backdrop-blur-[380px] w-full h-[65px] opacity-100 rounded-2xl border border-[#FFFFFF3B] flex items-center justify-between px-2 md:px-6 mt-2">
+                <ul className="bg-[#FFFFFF0D] backdrop-blur-[380px] w-full py-3 opacity-100 rounded-2xl border border-[#FFFFFF3B] flex items-center justify-between px-2 md:px-6 mt-2">
                   <li className="flex w-10 h-10 gap-3">
                     <Image
                       src={Ethereum}
@@ -160,7 +160,7 @@ const Pagethree = () => {
               </div>
 
               <div>
-                <ul className="bg-[#FFFFFF0D] backdrop-blur-[380px] w-full h-[65px] opacity-100 rounded-2xl border border-[#FFFFFF3B] flex items-center justify-between px-2 md:px-6 mt-2">
+                <ul className="bg-[#FFFFFF0D] backdrop-blur-[380px] w-full py-3 opacity-100 rounded-2xl border border-[#FFFFFF3B] flex items-center justify-between px-2 md:px-6 mt-2">
                   <li className="flex w-10 h-10 gap-3">
                     <Image
                       src={lite}

@@ -29,7 +29,7 @@ const Pageone = () => {
           </p>
         </div>
         <div className="flex items-center justify-center mt-6 cursor-pointer">
-          <div className="flex justify-center bg-white/10 w-[158px] h-[52px] opacity-100 rounded-[100px] border border-[#51F1E6] hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] hover:scale-[1.03] transition-all duration-300">
+          <div className="flex justify-center bg-white/10 px-9 py-3.5 opacity-100 rounded-[100px] border border-[#51F1E6] hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] hover:scale-[1.03] transition-all duration-300">
             <button className="text-white font-semibold text-[16px] leading-[140%] tracking-[0%] cursor-pointer">Get Started</button>
           </div>
         </div>

@@ -35,14 +35,14 @@ const Pagetwo = () => {
 
         {/* Toggle Buttons */}
         <div className="flex items-center justify-center pt-4 md:pt-14 px-4">
-          <div className=" w-full max-w-[358px] h-[68px] bg-[#FFFFFF0D] border border-[#FFFFFF1A] rounded-[100px] p-2 flex items-center justify-between hover:border-[#51F1E6] hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] transition-all duration-300">
+          <div className="bg-[#FFFFFF0D] border border-[#FFFFFF1A] rounded-[100px] p-2 flex items-center justify-between hover:border-[#51F1E6] hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] transition-all duration-300">
 
             {/* Left Button — Trading Bot */}
             <div
               onClick={() => setActive("trading")}
-              className={`w-1/2 h-[52px] rounded-[100px] flex items-center justify-center cursor-pointer
+              className={`px-9 py-3.5 rounded-[100px] flex items-center justify-center cursor-pointer
             ${active === "trading"
-                  ? "bg-[#FFFFFF1A] border border-[#51F1E6] "
+                  ? "bg-[#FFFFFF1A] border border-[#51F1E6]"
                   : ""
                 }`}
             >
@@ -54,7 +54,7 @@ const Pagetwo = () => {
             {/* Right Button — Coming Soon */}
             <div
               onClick={() => setActive("soon")}
-              className={`w-1/2 h-[52px] rounded-[100px] flex items-center justify-center cursor-pointer
+              className={`px-9 py-3.5 rounded-[100px] flex items-center justify-center cursor-pointer
             ${active === "soon"
                   ? "bg-[#FFFFFF1A] border border-[#51F1E6]"
                   : ""
@@ -70,7 +70,7 @@ const Pagetwo = () => {
 
         {/* Header Card */}
         <div className="flex items-center justify-center pt-4 md:pt-6 px-3 cursor-pointer">
-          <div className={`flex items-center bg-[#FFFFFF08] w-full max-w-[1056px] h-[76px] rounded-[20px] px-6 md:px-10 hover:scale-[1.03] hover:shadow-[0_0_25px_#51F1E655] transition-all duration-300
+          <div className={`flex items-center bg-[#FFFFFF08] w-full max-w-[1056px] py-3 md:py-6 rounded-[20px] px-6 md:px-10 hover:scale-[1.03] hover:shadow-[0_0_25px_#51F1E655] transition-all duration-300
             ${activeCard === "first" ? "border-2 border-[#51F1E6]" : "border border-[#FFFFFF29]"}`}>
             <div className="grid grid-cols-[90px_180px_1fr] md:grid-cols-[180px_260px_1fr]">
               <p className="text-white font-normal text-[16px] md:text-[20px] leading-[140%] tracking-[0%] align-middle uppercase">
@@ -90,7 +90,7 @@ const Pagetwo = () => {
         <div className="flex items-center justify-center pt-4 px-3 cursor-pointer"
           onMouseEnter={() => setActiveCard("starter")}
           onMouseLeave={() => setActiveCard("first")}>
-          <div className={`md:grid md:grid-cols-[180px_260px_1fr] flex flex-col items-start md:items-center bg-[#FFFFFF08] w-full max-w-[1056px] min-h-[135px] rounded-[20px] p-6 md:px-10 hover:scale-[1.03] hover:shadow-[0_0_25px_#51F1E655] transition-all duration-300
+          <div className={`md:grid md:grid-cols-[180px_260px_1fr] flex flex-col items-start md:items-center bg-[#FFFFFF08] w-full max-w-[1056px]  rounded-[20px] p-3 md:p-6 md:px-10 hover:scale-[1.03] hover:shadow-[0_0_25px_#51F1E655] transition-all duration-300
             ${activeCard === "starter" ? "border-2 border-[#51F1E6]" : "border border-[#FFFFFF29]"}`}>
             <button className="text-white text-center w-[113px] h-[37px] opacity-100 rounded-[80px] border border-[#FFFFFF3D] uppercase bg-[radial-gradient(130%_130%_at_50%_50%,rgba(255,255,255,0)_25%,#FFFFFF_100%)]">
               Starter
@@ -111,7 +111,7 @@ const Pagetwo = () => {
         <div className="flex items-center justify-center pt-4 px-3 cursor-pointer"
           onMouseEnter={() => setActiveCard("pro")}
           onMouseLeave={() => setActiveCard("first")}>
-          <div className={`md:grid md:grid-cols-[180px_260px_1fr] flex flex-col items-start md:items-center bg-[#FFFFFF08] w-full max-w-[1056px] min-h-[106px] opacity-100 rounded-[20px] p-6 md:px-10 hover:scale-[1.03] hover:shadow-[0_0_25px_#51F1E655] transition-all duration-300
+          <div className={`md:grid md:grid-cols-[180px_260px_1fr] flex flex-col items-start md:items-center bg-[#FFFFFF08] w-full max-w-[1056px] opacity-100 rounded-[20px] p-3 md:p-6 md:px-10 hover:scale-[1.03] hover:shadow-[0_0_25px_#51F1E655] transition-all duration-300
             ${activeCard === "pro" ? "border-2 border-[#51F1E6]" : "border border-[#FFFFFF29]"}`}>
             <button className="text-white w-[77px] h-[37px] top-[49px] opacity-100 rounded-[80px] border border-[#FFFFFF3D] uppercase bg-[radial-gradient(130%_130%_at_50%_50%,rgba(255,255,255,0)_25%,#FFFFFF_100%)]">
               Pro
@@ -133,7 +133,7 @@ const Pagetwo = () => {
         <div className="flex items-center justify-center pt-4 px-3 cursor-pointer"
           onMouseEnter={() => setActiveCard("elite")}
           onMouseLeave={() => setActiveCard("first")}>
-          <div className={`md:grid md:grid-cols-[180px_260px_1fr] flex flex-col items-start md:items-center bg-[#FFFFFF08] w-full max-w-[1056px] min-h-[106px] opacity-100 rounded-[20px] p-6 md:px-10 hover:scale-[1.03] hover:shadow-[0_0_25px_#51F1E655] transition-all duration-300
+          <div className={`md:grid md:grid-cols-[180px_260px_1fr] flex flex-col items-start md:items-center bg-[#FFFFFF08] w-full max-w-[1056px] opacity-100 rounded-[20px] p-3 md:p-6 md:px-10 hover:scale-[1.03] hover:shadow-[0_0_25px_#51F1E655] transition-all duration-300
             ${activeCard === "elite" ? "border-2 border-[#51F1E6]" : "border border-[#FFFFFF29]"}`}>
             <button className="text-white w-[85px] h-[37px] opacity-100 rounded-[80px] border border-[#FFFFFF3D] uppercase bg-[radial-gradient(130%_130%_at_50%_50%,rgba(255,255,255,0)_25%,#FFFFFF_100%)]">
               Elite
@@ -154,7 +154,7 @@ const Pagetwo = () => {
 
         {/* button */}
         <div className=" flex items-center justify-center mt-6 md:mt-10">
-          <div className="flex items-center justify-center w-[159px] h-[52px] opacity-100 rounded-[100px] bg-white/10 border border-[#51F1E6] hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] hover:scale-[1.03] transition-all duration-300 cursor-pointer">
+          <div className="flex items-center justify-center px-8.5 py-3.5 opacity-100 rounded-[100px] bg-white/10 border border-[#51F1E6] hover:bg-[#FFFFFF15] hover:shadow-[0_0_20px_#51F1E655] hover:scale-[1.03] transition-all duration-300 cursor-pointer">
             <button className="text-white font-semibold text-[16px] leading-[140%] tracking-[0] cursor-pointer">
               Get Started
             </button>
